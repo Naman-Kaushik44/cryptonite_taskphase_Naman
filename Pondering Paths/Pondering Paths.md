@@ -1,7 +1,9 @@
 # Pondering Paths
 
 ## 1) The Root
-
+The linux filesystem is a tree and it has a root that is represented with /.
+We refer to files and directories by their path. A path from the root of the filesystem starts with / (that is, the root of the filesystem), and describes the set of directories that must be descended into to find the file. Every piece of the path is demarcated with another /.
+The filesystem starts at / 
 ```bash
 hacker@paths~the-root:~$ /pwn
 BOOM!!!
