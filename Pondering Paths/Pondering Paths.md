@@ -16,9 +16,9 @@ Here is your flag:
 pwn.college{46KLaMFPUjo-E6yvkTn7NwVF66I.dhzN5QDL5IjN0czW}
 ```
 ## 2) Program and Absolute Paths
-What I learnt in this challenge:-
+What I learnt in this challenge and my approach:-
 
-
+If the run program is in the challenge directory and the challenge directory is in the /(root directory) then the path to the 'run' challenge program is /challenge/run. Hence to invoke the run challenge program, the run file is exectuted which was in the challenge directory which was in turn inside the / directory.
 
 
 ```bash
@@ -29,6 +29,12 @@ pwn.college{MoxVNCth38jbdUgECBTT_BXovNv.dVDN1QDL5IjN0czW}
 ```
 
 ## 3) Position thyself
+
+What I learnt in this challenge and my approach:-
+
+The cd (Change Directory) command is used to navigate through directories by passing a path to it as an argument. Basically for any process, the shell is hanging out in some or the other directory and the cd command helps us change it.
+
+For the challenge, it specifically said that the challenge will tell me where I need to cd to before running the /challenge/run program hence I tried running the program straight up without cd to get an error or a prompt telling me about the correct path and the challenge indeed gave it to me after the attempt just like it said it would. Hence I got the flag by using cd command for the right path and then invoking the program.
 ```bash
 hacker@paths~position-thy-self:~$ /challenge/run
 Incorrect...
@@ -42,6 +48,11 @@ Here is your flag:
 pwn.college{oJpDotKtlubpfh_eI03-1zzvp69.dZDN1QDL5IjN0czW}
 ```
 ## 4) Position elsewhere
+
+What I learnt in this challenge and my approach:-
+
+
+
 ```bash
 hacker@paths~position-elsewhere:~$ /challenge/run
 Incorrect...
