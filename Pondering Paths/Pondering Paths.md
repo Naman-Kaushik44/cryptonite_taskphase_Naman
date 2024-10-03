@@ -112,6 +112,10 @@ Here is your flag:
 pwn.college{o_IO3yJTNHA_JQA0fOW5VC1S4PV.dlDN1QDL5IjN0czW}
 ```
 ## 7) explicitive relative paths, from /
+
+What I learnt in this challenge, the mistakes and the approach towards the right conclusion: 
+
+
 ```bash
 hacker@paths~explicit-relative-paths-from-:~$ .
 ssh-entrypoint: .: filename argument required
