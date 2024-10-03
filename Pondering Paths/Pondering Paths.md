@@ -49,7 +49,7 @@ pwn.college{oJpDotKtlubpfh_eI03-1zzvp69.dZDN1QDL5IjN0czW}
 ```
 ## 4) Position elsewhere
 
-What I learnt in this challenge and my approach:-
+What I learnt in this challenge, my approach and an observation :-
 
 
 
