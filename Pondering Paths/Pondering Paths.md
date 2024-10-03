@@ -1,9 +1,12 @@
 # Pondering Paths
 
 ## 1) The Root
-Summary of what I learned in this challenge :-
-The linux filesystem is a tree and it has a root that is represented with /.
+ What I learnt in this challenge :-
+
+The linux filesystem is a tree and it has a root that is represented with /.  The root of the filesystem is a directory, and every directory can contain other directories and files.
+
 We refer to files and directories by their path. A path from the root of the filesystem starts with / (that is, the root of the filesystem), and describes the set of directories that must be descended into to find the file. Every piece of the path is demarcated with another /.
+
 The filesystem starts at / and a program can be invoked by providing it's path. The challenge required us to invoke the pwn program using the /pwn path. This style of path, one that starts with the root directory, is referred to as an "absolute path".
 
 ```bash
@@ -13,6 +16,9 @@ Here is your flag:
 pwn.college{46KLaMFPUjo-E6yvkTn7NwVF66I.dhzN5QDL5IjN0czW}
 ```
 ## 2) Program and Absolute Paths
+What I learnt in this challenge:-
+
+
 
 
 ```bash
