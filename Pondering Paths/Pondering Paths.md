@@ -86,6 +86,23 @@ Here is your flag:
 pwn.college{QHo1Y1yLvIvxVP3cRgsGEmK6x3-.dhDN1QDL5IjN0czW}
 ```
 ## 6) impicitive relative paths, from /
+
+For relative paths, the current working directory matters.
+What is a relative path?
+Ans: A relative path is any path that does not start at root (i.e., it does not start with /) and is interpreted relative to our current working directory (cwd) where our cwd is the directory that our prompt is currently located at.
+This means that how we specify a particular file depends on where the terminal prompt is located.
+
+An example given on the pwn.college website illustrates this as follows:
+
+Imagine we want to access some file located at /tmp/a/b/my_file.
+
+    If my cwd is /, then a relative path to the file is tmp/a/b/my_file.
+    If my cwd is /tmp, then a relative path to the file is a/b/my_file.
+    If my cwd is /tmp/a/b/c, then a relative path to the file is ../my_file. The .. refers to the parent directory.
+
+Now the challenge was to run the /challenge/run program with a relative path while having the current working directory as /.
+So we simply change the directory to / and then the current working directory is changed to / and then the relative path will be challenge/run.
+
 ```bash
 hacker@paths~implicit-relative-paths-from-:~$ cd /
 hacker@paths~implicit-relative-paths-from-:/$ challenge/run
