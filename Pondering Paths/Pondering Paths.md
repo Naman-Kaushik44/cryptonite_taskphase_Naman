@@ -51,7 +51,10 @@ pwn.college{oJpDotKtlubpfh_eI03-1zzvp69.dZDN1QDL5IjN0czW}
 
 What I learnt in this challenge, my approach and an observation :-
 
+Again the challenge told me to change to a specific directory which I got by trying to invoke the /challenge/run program without it.
+Then I changed the directory to it and got the flag by invoking the program /challenge/run.
 
+One observation to be made here is that no matter what directory we are in, if we put in absolute paths everywhere, it won't matter.
 
 ```bash
 hacker@paths~position-elsewhere:~$ /challenge/run
@@ -67,6 +70,9 @@ pwn.college{0AW79cLTrNtlpLr7g_pgzHtOPr_.ddDN1QDL5IjN0czW}
 hacker@paths~position-elsewhere:/proc/67/fd$ 
 ```
 ## 5) Position yet elsewhere 
+
+This challenge was the same as the 3rd challenge, most likely to get us comfortable with cd and absolute paths and to show us the irrelevance of directory location as long as absolute path is being used.
+
 ```bash
 hacker@paths~position-yet-elsewhere:~$ /challenge/run
 Incorrect...
