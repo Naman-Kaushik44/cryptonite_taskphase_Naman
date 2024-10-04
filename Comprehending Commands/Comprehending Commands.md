@@ -127,7 +127,27 @@ hacker@commands~removing-files:~$ /challenge/check
 Excellent removal. Here is your reward:
 pwn.college{gULQiHr4yI2E9mgipU99PqeEVw3.dZTOwUDL5IjN0czW}
 ```
+## hidden files
 
+ls doesn't list all the files by default. Linux has a convention where files that start with a . don't show up by default in ls and in a few other contexts. To view them with ls, we need to invoke ls with the -a flag, as illustrated in the example on pwn.college:
+```
+hacker@dojo:~$ ls
+pwn
+hacker@dojo:~$ ls -a
+.college	pwn
+```
+The challenge is to find the flag, hidden as a dot-prepended file in /.
+```bash
+hacker@commands~hidden-files:~$ cd /
+hacker@commands~hidden-files:/$ ls -a
+.                      bin        etc    lib64   nix   run   tmp
+..                     boot       home   libx32  opt   sbin  usr
+.dockerenv             challenge  lib    media   proc  srv   var
+.flag-145862451510170  dev        lib32  mnt     root  sys
+hacker@commands~hidden-files:/$ cat .flag-145862451510170
+pwn.college{keyqeuxUQmwL7ciDlZLxrHEqVtC.dBTN4QDL5IjN0czW}
+```
+I first entered the / by invoking the cd command and then ran the ls -a command to display the list of all files in / directory, including the hidden files. One file among them started with .flag which hints that it must contain the flag I am looking for so I simple displayed the contents of that file using the cat command to get the flag.
 
 
 
