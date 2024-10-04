@@ -266,5 +266,41 @@ It is: pwn.college{U183WkGSVuGlBug6ouQ4rYpA-ZW.dljM4QDL5IjN0czW}
 So first I moved into the / directory with cd command and then listed all the files in it with ls. Then I used cat command to read the obviously suspicious files written in bold. Each of them gave me a new directory to move into to gather more clues.
 The challenging part was when I was asked to read a file from the directory given without using the cd command. This took a while to figure out, I kept trying to read the s390 directory at the end of the path provided the previous clue. Then I thought again and noticed that I could try using these cat and ls commands just like cd by providing them with an entire path instead of just a directory or a file. Hence I used ls on the entire path which then listed all the file in the s390 directory which I was struggling with. Now I could again provide cat command with the entire path as the argument, of course after adding the clue file at the end of the path which I discovered with ls. After that the challenge was solved fairly quickly with my improved understanding of these commands.
 
-##
+## making directories
+
+mkdir command is used to make directories.
+This is illustrated by the following example:
+
+```bash
+hacker@dojo:~$ cd /tmp
+hacker@dojo:/tmp$ ls
+hacker@dojo:/tmp$ ls
+hacker@dojo:/tmp$ mkdir my_directory
+hacker@dojo:/tmp$ ls
+my_directory
+hacker@dojo:/tmp$ cd my_directory
+hacker@dojo:/tmp/my_directory$ touch my_file
+hacker@dojo:/tmp/my_directory$ ls
+my_file
+hacker@dojo:/tmp/my_directory$ ls /tmp/my_directory/my_file
+/tmp/my_directory/my_file
+```
+Challenge is to make a /tmp/pwn directory and make a college file in it and then invoke the /challenge/run to get the flag
+
+```bash
+hacker@commands~making-directories:~$ cd /tmp
+hacker@commands~making-directories:/tmp$ mkdir pwn
+hacker@commands~making-directories:/tmp$ ls 
+bin  hsperfdata_root  pwn  tmp.MiOQGWw5Zc
+hacker@commands~making-directories:/tmp$ cd pwn
+hacker@commands~making-directories:/tmp/pwn$ touch college
+hacker@commands~making-directories:/tmp/pwn$ ls
+college
+hacker@commands~making-directories:/tmp/pwn$ /challenge/run
+Success! Here is your flag:
+pwn.college{g5v4b7x8dPl0bpIdLB_wduDbohX.dFzM4QDL5IjN0czW}
+```
+I cd'd into the tmp directory and then used the mkdir command to make pwn directory, checked if it worked with ls command and then again cd'd into the newly made pwn directory where I used the touch command to make a file with the name college which I again cross checked with ls. 
+
+Finally ran the /challenge/run command to get the flag.
 
