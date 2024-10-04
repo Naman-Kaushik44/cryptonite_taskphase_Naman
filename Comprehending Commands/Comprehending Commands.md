@@ -66,7 +66,7 @@ Directories can have a lot of file and other directories inside of them and they
 ls will list files in all the directories provided to it as arguments, and in the current directory if no arguments are provided.
 
 An example of this given on pwn.college is: 
-
+```
 hacker@dojo:~$ ls /challenge
 run
 hacker@dojo:~$ ls
@@ -76,7 +76,7 @@ hacker@dojo:~$ ls /home/hacker
 Desktop    Downloads  Pictures  Templates
 Documents  Music      Public    Videos
 hacker@dojo:~$
-
+```
 Now the challenge wants us to find renamed run file in /challenge by listing the files and then invoke it.
 ```bash
 hacker@commands~listing-files:~$ ls /challenge
