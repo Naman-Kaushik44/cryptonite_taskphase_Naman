@@ -86,7 +86,25 @@ Yahaha, you found me! Here is your flag:
 pwn.college{gM7DYlrIzX2YFWyUhLx9FwCFh7g.dhjM4QDL5IjN0czW}
 hacker@commands~listing-files:~$ 
 ```
-## 
+## touching files
+
+We can create a new, blank file by touching it with the touch command.
+The challenge requires us to create two new files /tmp/pwn and /tmp/college, and run /challenge/run to get the flag.
+```bash
+hacker@commands~touching-files:~$ cd /tmp
+hacker@commands~touching-files:/tmp$ ls
+bin  hsperfdata_root  tmp.MiOQGWw5Zc
+hacker@commands~touching-files:/tmp$ touch pwn
+hacker@commands~touching-files:/tmp$ touch college
+hacker@commands~touching-files:/tmp$ ls
+bin  college  hsperfdata_root  pwn  tmp.MiOQGWw5Zc
+hacker@commands~touching-files:/tmp$ /challenge/run
+Success! Here is your flag:
+pwn.college{w2silAEzg1yfi24sGgXmtCnPzH7.dBzM4QDL5IjN0czW}
+```
+I entered the /tmp directory with cd command and then checked the already present files inside with ls command.
+I then used touch command to create two new files with pwn and college names and then again ran the ls command to check if my new files had been added or not.
+
 
 
 
