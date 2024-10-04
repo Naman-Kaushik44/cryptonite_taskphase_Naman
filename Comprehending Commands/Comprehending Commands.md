@@ -263,6 +263,8 @@ hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ cat /usr/local/l
 CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
 It is: pwn.college{U183WkGSVuGlBug6ouQ4rYpA-ZW.dljM4QDL5IjN0czW}
 ```
+So first I moved into the / directory with cd command and then listed all the files in it with ls. Then I used cat command to read the obviously suspicious files written in bold. Each of them gave me a new directory to move into to gather more clues.
+The challenging part was when I was asked to read a file from the directory given without using the cd command. This took a while to figure out, I kept trying to read the s390 directory at the end of the path provided the previous clue. Then I thought again and noticed that I could try using these cat and ls commands just like cd by providing them with an entire path instead of just a directory or a file. Hence I used ls on the entire path which then listed all the file in the s390 directory which I was struggling with. Now I could again provide cat command with the entire path as the argument, of course after adding the clue file at the end of the path which I discovered with ls. After that the challenge was solved fairly quickly with my improved understanding of these commands.
 
-
+##
 
