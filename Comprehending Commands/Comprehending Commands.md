@@ -45,6 +45,21 @@ pwn.college{M_MSIoDKi5vbPj-f8lJt_qO_pXs.dBjM5QDL5IjN0czW}
 ```
 So I just put in the absolute path provided in the challenge as the argument for the cat command to get the flag.
 
+## grepping for a needle in a haystack
+
+Sometimes when the file is too big, its not possible to cd and read it so we only search for the relevant lines from the text with the help of the grep command.
+
+hacker@dojo:~$ grep SEARCH_STRING /path/to/file
+
+Invoked like this, grep will search the file for lines of text containing SEARCH_STRING and print them to the console.
+
+Now the challege wants us to find the flag from a 100k line text.
+So we grep the file out of it by providing the argument pwn.college along with the file path /challenge/data.txt to it since every flag on pwn.college start with that.
+```bash
+Connected!
+hacker@commands~grepping-for-a-needle-in-a-haystack:~$ grep pwn.college /challenge/data.txt
+pwn.college{Y5W1OXnWuLoZojijFj93nM_xtPZ.ddTM4QDL5IjN0czW}
+```
 
 
 
