@@ -149,6 +149,120 @@ pwn.college{keyqeuxUQmwL7ciDlZLxrHEqVtC.dBTN4QDL5IjN0czW}
 ```
 I first entered the / by invoking the cd command and then ran the ls -a command to display the list of all files in / directory, including the hidden files. One file among them started with .flag which hints that it must contain the flag I am looking for so I simple displayed the contents of that file using the cat command to get the flag.
 
+## An epic filesystem quest
+
+I must say this was insanely fun to do. In the long run this might just be a practice of some simple commands but for the current me it was a bit challenging and took some thought at some junctions. 
+
+I will add the entire thing from the command prompt here and explain my thought process in a summary at critical junctions:
+
+```bash
+acker@commands~an-epic-filesystem-quest:~$ cd /
+hacker@commands~an-epic-filesystem-quest:/$ ls 
+TEASER  challenge  flag  lib32   media  opt   run   sys  var
+bin     dev        home  lib64   mnt    proc  sbin  tmp
+boot    etc        lib   libx32  nix    root  srv   usr
+hacker@commands~an-epic-filesystem-quest:/$ ls -a
+.           TEASER  challenge  flag  lib32   media  opt   run   sys  var
+..          bin     dev        home  lib64   mnt    proc  sbin  tmp
+.dockerenv  boot    etc        lib   libx32  nix    root  srv   usr
+hacker@commands~an-epic-filesystem-quest:/$ cat TEASER
+Great sleuthing!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/networkx/__pycache__
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+hacker@commands~an-epic-filesystem-quest:/$ cd /usr/local/lib/python3.8/dist-packages/networkx/__pycache__
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/networkx/__pycache__$ ls
+GIST                     convert_matrix.cpython-38.pyc
+__init__.cpython-38.pyc  exception.cpython-38.pyc
+conftest.cpython-38.pyc  lazy_imports.cpython-38.pyc
+convert.cpython-38.pyc   relabel.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/networkx/__pycache__$ cat GIST
+Tubular find!
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/networkx/__pycache__$ cd /usr/lib/python3/dist-packages/matplotlib/testing/jpl_units
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/
+ssh-entrypoint: hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/: No such file or directory
+hacker@commands~an-epic-filesystem-quest:/usr/lib/python3/dist-packages/matplotlib/testing/jpl_units$ ls
+Duration.py  EpochConverter.py  StrConverter.py  UnitDblConverter.py  __init__.py
+Epoch.py     INSIGHT            UnitDbl.py       UnitDblFormatter.py  __pycache__
+hacker@commands~an-epic-filesystem-quest:/usr/lib/python3/dist-packages/matplotlib/testing/jpl_units$ cat INSIGHT
+Lucky listing!
+The next clue is in: /opt/linux/linux-5.4/tools/arch/s390
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/usr/lib/python3/dist-packages/matplotlib/testing/jpl_units$ cd /opt/linux/linux-5.4/tools/arch
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ ls
+alpha  arc  arm  arm64  csky  h8300  hexagon  ia64  microblaze  mips  parisc  powerpc  riscv  s390  sh  sparc  x86  xtensa
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat s390
+cat: s390: Is a directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ grep trapped /s390
+grep: /s390: No such file or directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ grep trapped /opt/linux/linux-5.4/tools/arch/s390
+grep: /opt/linux/linux-5.4/tools/arch/s390: Is a directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ grep trapped /opt/linux/linux-5.4/tools/arch/s390
+grep: /opt/linux/linux-5.4/tools/arch/s390: Is a directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ grep clue /opt/linux/linux-5.4/tools/arch/s390
+grep: /opt/linux/linux-5.4/tools/arch/s390: Is a directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat /opt/linux/linux-5.4/tools/arch/s390
+cat: /opt/linux/linux-5.4/tools/arch/s390: Is a directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat /s390
+cat: /s390: No such file or directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ ls -a
+.  ..  alpha  arc  arm  arm64  csky  h8300  hexagon  ia64  microblaze  mips  parisc  powerpc  riscv  s390  sh  sparc  x86  xtensa
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat s390
+cat: s390: Is a directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat /s390/trapped
+cat: /s390/trapped: No such file or directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat /s390/clue
+cat: /s390/clue: No such file or directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat /s390/flag
+cat: /s390/flag: No such file or directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ ls /s390
+ls: cannot access '/s390': No such file or directory
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ ls s390
+MEMO-TRAPPED  include
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cat s390/MEMO-TRAPPED
+Lucky listing!
+The next clue is in: /opt/linux/linux-5.4/arch/sh/kernel/vsyscall
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/tools/arch$ cd /opt/linux/linux-5.4/arch/sh/kernel/vsyscall
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/arch/sh/kernel/vsyscall$ ls 
+Makefile  POINTER  vsyscall-note.S  vsyscall-sigreturn.S  vsyscall-syscall.S  vsyscall-trapa.S  vsyscall.c  vsyscall.lds.S
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/arch/sh/kernel/vsyscall$ cat POINTER
+Great sleuthing!
+The next clue is in: /usr/share/locale/id/LC_MESSAGES
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/arch/sh/kernel/vsyscall$ cd /usr/share/locale/id/LC_MESSAGES
+hacker@commands~an-epic-filesystem-quest:/usr/share/locale/id/LC_MESSAGES$ ls -a
+.   .SPOILER  iso_15924.mo   iso_3166-2.mo  iso_3166.mo    iso_4217.mo   iso_639-3.mo  iso_639.mo    iso_639_5.mo
+..  dpkg.mo   iso_3166-1.mo  iso_3166-3.mo  iso_3166_2.mo  iso_639-2.mo  iso_639-5.mo  iso_639_3.mo  sphinx.mo
+hacker@commands~an-epic-filesystem-quest:/usr/share/locale/id/LC_MESSAGES$ cat .SPOILER
+Congratulations, you found the clue!
+The next clue is in: /opt/radare2/shlr/sdb
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/usr/share/locale/id/LC_MESSAGES$ cd /opt/radare2/shlr/sdb
+hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ ls -a
+.  ..  .WHISPER  Makefile  README.md  config.mk  include  memcache  meson.build  sdb  src  test  wasi.mk  wasi.sh
+hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ cat .WHISPER
+Tubular find!
+The next clue is in: /opt/linux/linux-5.4/drivers/soc/bcm/brcmstb/pm
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ ls /opt/linux/linux-5.4/drivers/soc/bcm/brcmstb/pm
+Makefile  NUGGET-TRAPPED  aon_defs.h  pm-arm.c  pm-mips.c  pm.h  s2-arm.S  s2-mips.S  s3-mips.S
+hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ cat /opt/linux/linux-5.4/drivers/soc/bcm/brcmstb/pm/NUGGET-TRAPPED
+Great sleuthing!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/sympy/solvers/ode/__pycache__
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ ls /usr/local/lib/python3.8/dist-packages/sympy/solvers/ode/__pycache__
+DISPATCH-TRAPPED               lie_group.cpython-38.pyc       riccati.cpython-38.pyc    systems.cpython-38.pyc
+__init__.cpython-38.pyc        nonhomogeneous.cpython-38.pyc  single.cpython-38.pyc
+hypergeometric.cpython-38.pyc  ode.cpython-38.pyc             subscheck.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/opt/radare2/shlr/sdb$ cat /usr/local/lib/python3.8/dist-packages/sympy/solvers/ode/__pycache__/DISPATCH-TRAPPED
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+It is: pwn.college{U183WkGSVuGlBug6ouQ4rYpA-ZW.dljM4QDL5IjN0czW}
+```
 
 
 
