@@ -61,6 +61,32 @@ hacker@commands~grepping-for-a-needle-in-a-haystack:~$ grep pwn.college /challen
 pwn.college{Y5W1OXnWuLoZojijFj93nM_xtPZ.ddTM4QDL5IjN0czW}
 ```
 
+## listing files
+Directories can have a lot of file and other directories inside of them and they can be listed using the ls command.
+ls will list files in all the directories provided to it as arguments, and in the current directory if no arguments are provided.
+
+An example of this given on pwn.college is: 
+
+hacker@dojo:~$ ls /challenge
+run
+hacker@dojo:~$ ls
+Desktop    Downloads  Pictures  Templates
+Documents  Music      Public    Videos
+hacker@dojo:~$ ls /home/hacker
+Desktop    Downloads  Pictures  Templates
+Documents  Music      Public    Videos
+hacker@dojo:~$
+
+Now the challenge wants us to find renamed run file in /challenge by listing the files and then invoke it.
+```bash
+hacker@commands~listing-files:~$ ls /challenge
+5219-renamed-run-10698  DESCRIPTION.md
+hacker@commands~listing-files:~$ /challenge/5219-renamed-run-10698
+Yahaha, you found me! Here is your flag:
+pwn.college{gM7DYlrIzX2YFWyUhLx9FwCFh7g.dhjM4QDL5IjN0czW}
+hacker@commands~listing-files:~$ 
+```
+## 
 
 
 
