@@ -105,11 +105,28 @@ pwn.college{w2silAEzg1yfi24sGgXmtCnPzH7.dBzM4QDL5IjN0czW}
 I entered the /tmp directory with cd command and then checked the already present files inside with ls command.
 I then used touch command to create two new files with pwn and college names and then again ran the ls command to check if my new files had been added or not.
 
+## removing files
 
+An example in pwn.college that perfectly illustrates the process of removing files: 
+```bash
+In Linux, we remove files with the rm command, as so:
 
-
-
-
+hacker@dojo:~$ touch PWN
+hacker@dojo:~$ touch COLLEGE
+hacker@dojo:~$ ls
+COLLEGE     PWN
+hacker@dojo:~$ rm PWN
+hacker@dojo:~$ ls
+COLLEGE
+hacker@dojo:~$
+```
+Now the challenge was to delete the delete_me file from the home directory and then run the command challenge/check to get the file.
+```bash
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{gULQiHr4yI2E9mgipU99PqeEVw3.dZTOwUDL5IjN0czW}
+```
 
 
 
