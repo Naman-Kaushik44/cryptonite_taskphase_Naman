@@ -365,3 +365,38 @@ hacker@commands~finding-files:~$ ls /opt/linux/linux-5.4/scripts/kconfig/tests/p
 hacker@commands~finding-files:~$ cat /opt/linux/linux-5.4/scripts/kconfig/tests/preprocess/flag
 pwn.college{AxjXIrx2lBVZaLoak24AT2qFUY5.dJzM4QDL5IjN0czW}
 ```
+## linking files
+
+
+```bash
+Connected
+~hacker@commands-linking-files :- $ /challenge/catflag
+~About to read out the /home/hacker/not-the-flag file!
+cat: /home/hacker/not-the-flag: No such file or directory
+hacker@commands-linking-files :- $ ln -s /challenge/catflag /home/hacker/not-the-flag file
+ln: target 'file': No such file or directory
+hacker@commands-linking-flles :- $ ln -s /challenge/catflag /home/hacker/not-the-flag
+```
+This is where I messed up, I created a symlink between not the flag file and catflag while experimenting with the question and I didn't know that changes made to the home directory files don't get reset even if u restart the challenge. 
+It was too late when I realized that I had to create a symlink between the /flag and ~/not-the-flag-file so that it could create a chain that would invoke the /challenge/catflag to read the /flag file via ~/not-the-flag-file. 
+Now no matter how many times or ways I tried linking different files, I couldn't get them to link up again.
+```bash 
+hacker@commands-linking-files :- $ ln -s /flag /challenge/catflag
+In: fatled to create symbolic link '/challenge/catflag': File extsts
+hacker@commands-linking-files :- $ ln -s /challenge/catflag /flag
+In: fatled to create symbolic link '/flag': File extsts
+hacker@commands-linking-ftles :- $ ln -s /flag /home/hacker/not-the-flag
+In: fatled to create symbolic link '/home/hacker/not-the-flag': File exists
+hacker@commands-linking-files :- $ ln -s -/flag /hone/hacker/not-the-flag
+In: fatled to create symbolic link '/home/hacker/not-the-flag': File extsts
+hacker@commands-linking-files :- $ ln -s /home/hacker/not-the-flag /flag
+In: fatled to create symbolic link '/flag': File exists
+```
+So in the end I sent my problem on the discord server of pwn.college where they told me that I could forcefully overwrite symlinks by ```ln -fs``` command.
+```bash
+hacker@commands~linking-files:~$ ln -fs /flag /home/hacker/not-the-flag
+hacker@commands~linking-files:~$ /challenge/catflag 
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{gxLt44KvNMfTan2CHOaxHL9cFNJ.dlTM1UDL5IjN0czW}
+```
+
