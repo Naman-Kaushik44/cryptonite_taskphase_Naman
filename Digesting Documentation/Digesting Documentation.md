@@ -35,3 +35,32 @@ pwn.college{QMVD9gbXUp6jwQLH1sl8NaCauSw.dVjM5QDL5IjN0czW}
 ```
 
 ## 3) Reading Manuals
+
+```bash
+hacker@man~reading-manuals:/challenge$ man challenge
+
+CHALLENGE(1)                  Challenge Commands                  CHALLENGE(1)
+
+NAME
+       /challenge/challenge - print the flag!
+
+SYNOPSIS
+       challenge OPTION
+
+DESCRIPTION
+       Output the flag when called with the right arguments.
+
+       --fortune
+              read a fortune
+
+       --version
+              output version information and exit
+
+       --aissvb NUM
+              print the flag if NUM is 264
+
+AUTHOR
+       Written by Zardus.
+hacker@man~reading-manuals:/challenge$ /challenge/challenge --aissvb 264
+Correct usage! Your flag: pwn.college{YKXA2LRaiZAMs_6-C4svNbDal5J.dRTM4QDL5IjN0czW}
+```
