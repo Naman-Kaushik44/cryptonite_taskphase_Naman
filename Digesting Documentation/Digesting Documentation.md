@@ -878,3 +878,51 @@ ssh-entrypoint: challenge/challenge: No such file or directory
 hacker@man~searching-for-manuals:~$ /challenge/challenge --curhiv 928
 Correct usage! Your flag: pwn.college{cuNrhGFViMQ9YYUJvPbH_2X8Wkc.dZTM4QDL5IjN0czW}
 ```
+## Helpful Programs
+
+```bash
+hacker@man~helpful-programs:~$ /flag --help
+ssh-entrypoint: /flag: Permission denied
+hacker@man~helpful-programs:~$ echo --help
+--help
+hacker@man~helpful-programs:~$ man man
+hacker@man~helpful-programs:~$ /challenge/challenge --help
+usage: a challenge to make you ask for help [-h] [--fortune] [-v]
+                                            [-g GIVE_THE_FLAG] [-p]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fortune             read your fortune
+  -v, --version         get the version number
+  -g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
+                        get the flag, if given the correct value
+  -p, --print-value     print the value that will cause the -g option to give
+                        you the flag
+hacker@man~helpful-programs:~$ /challenge/challenge -p
+The secret value is: 56
+hacker@man~helpful-programs:~$ /challenge/challenge -g 56
+Correct usage! Your flag: pwn.college{0fP5b6IWdUk_cyOaqQTJOmHdzX2.ddjM4QDL5IjN0czW}
+hacker@man~helpful-programs:~$ 
+```
+
+## Help for Builtins 
+
+```bash
+
+Connected!
+hacker@man~help-for-builtins:~$ help challenge
+challenge: challenge [--fortune] [--version] [--secret SECRET]
+    This builtin command will read you the flag, given the right arguments!
+    
+    Options:
+      --fortune		display a fortune
+      --version		display the version
+      --secret VALUE	prints the flag, if VALUE is correct
+
+    You must be sure to provide the right value to --secret. That value
+    is "AOuwgjl3".
+hacker@man~help-for-builtins:~$ challenge --secret AOuwgjl3
+Correct! Here is your flag!
+pwn.college{AOuwgjl3ah9UW19N3lxnaJ-G57R.dRTM5QDL5IjN0czW}
+
+```
