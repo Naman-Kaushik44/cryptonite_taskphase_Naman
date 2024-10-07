@@ -64,3 +64,45 @@ AUTHOR
 hacker@man~reading-manuals:/challenge$ /challenge/challenge --aissvb 264
 Correct usage! Your flag: pwn.college{YKXA2LRaiZAMs_6-C4svNbDal5J.dRTM4QDL5IjN0czW}
 ```
+## 4) Searching Manuals
+
+```bash
+
+SYNOPSIS
+       challenge OPTION
+
+DESCRIPTION
+       Output the flag when called with the right argument.
+
+       --fortune
+              read a fortune
+
+       --version
+              output version information and exit
+
+       --umxpolk
+              A neat argument, but not the right one.
+
+       --xsfxu
+              A neat argument, but not the right one.
+
+       --fpca A neat argument, but not the right one.
+
+       -o     A neat argument, but not the right one.
+
+       --jquarqt
+ Manual page challenge(1) line 7 (press h for help or q to quit)
+```
+The manual page popped up after using the man command.
+Now I just searched for the flag using ``/flag`` and then used ``n`` to jump from one search result to the next until I found this :
+```bash
+
+       --rkin This argument will give you the flag!
+
+```
+And then just used this as the argument in /challenge/challenge after closing the manual page with ``q``
+```bash
+hacker@man~searching-manuals:~$ /challenge/challenge --rkin
+Initializing...
+Correct usage! Your flag: pwn.college{ETE-AFZ2f9SXuMATeueR70f3QfN.dVTM4QDL5IjN0czW}
+```
