@@ -1,5 +1,5 @@
 # Digesting Documentation
-(Still Editing, will add the learnings and approach soon)
+(All codes are added, will add the learnings and approach soon)
 ## 1) Learning from Documentation
 
 ```bash
