@@ -108,7 +108,7 @@ Initializing...
 Correct usage! Your flag: pwn.college{ETE-AFZ2f9SXuMATeueR70f3QfN.dVTM4QDL5IjN0czW}
 ```
 
-## Searching for Manuals
+## 5) Searching for Manuals
 
 ```bash
 
@@ -878,7 +878,7 @@ ssh-entrypoint: challenge/challenge: No such file or directory
 hacker@man~searching-for-manuals:~$ /challenge/challenge --curhiv 928
 Correct usage! Your flag: pwn.college{cuNrhGFViMQ9YYUJvPbH_2X8Wkc.dZTM4QDL5IjN0czW}
 ```
-## Helpful Programs
+## 6) Helpful Programs
 
 ```bash
 hacker@man~helpful-programs:~$ /flag --help
@@ -905,7 +905,7 @@ Correct usage! Your flag: pwn.college{0fP5b6IWdUk_cyOaqQTJOmHdzX2.ddjM4QDL5IjN0c
 hacker@man~helpful-programs:~$ 
 ```
 
-## Help for Builtins 
+## 7) Help for Builtins 
 
 ```bash
 
