@@ -33,3 +33,14 @@ hacker@globbing~matching-with-:/challenge/files$ /challenge/run file_[ahsb]
 You got it! Here is your flag!
 pwn.college{EBPRt5r7l2MvjSYkI4cRqg11eZk.dNjM4QDL5IjN0czW}
 ```
+## Matching paths with []
+
+```bash
+hacker@globbing~matching-paths-with-:~$ cd /challenge/files
+hacker@globbing~matching-paths-with-:/challenge/files$ /challenge/run /file_[abhs]
+Error: please run with a working directory of /home/hacker!
+hacker@globbing~matching-paths-with-:/challenge/files$ cd ~
+hacker@globbing~matching-paths-with-:~$ /challenge/run /challenge/files/file_[abhs]
+You got it! Here is your flag!
+pwn.college{syr6LKyiSVdTkE24NNyOAB11K3h.dRjM4QDL5IjN0czW}
+```
