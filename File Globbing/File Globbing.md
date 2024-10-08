@@ -66,3 +66,18 @@ hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]*
 You got it! Here is your flag!
 pwn.college{oVj9YuVk266wrRSBVPNz325fyNC.dVjM4QDL5IjN0czW}
 ```
+## Exclusionary Globbing
+
+```bash
+hacker@globbing~exclusionary-globbing:~$ cd /challenge/files
+hacker@globbing~exclusionary-globbing:/challenge/files$ ls
+amazing      fantastic   kind        pwning     uplifting   zesty
+beautiful    great       laughing    queenly    victorious
+challenging  happy       magical     radiant    wonderful
+delightful   incredible  nice        splendid   xenial
+educational  jovial      optimistic  thrilling  youthful
+hacker@globbing~exclusionary-globbing:/challenge/files$ /challenge/run [!pwn]*
+You got it! Here is your flag!
+pwn.college{AG74a_3uAXnqzwWjBLgFP5ZrnUK.dZjM4QDL5IjN0czW}
+hacker@globbing~exclusionary-globbing:/challenge/files$ 
+```
