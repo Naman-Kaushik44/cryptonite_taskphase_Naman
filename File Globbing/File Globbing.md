@@ -44,7 +44,7 @@ hacker@globbing~matching-paths-with-:~$ /challenge/run /challenge/files/file_[ab
 You got it! Here is your flag!
 pwn.college{syr6LKyiSVdTkE24NNyOAB11K3h.dRjM4QDL5IjN0czW}
 ```
-##Mixing globs
+## Mixing globs
 
 ```bash
 hacker@globbing~mixing-globs:~$ cd /challenge/files
