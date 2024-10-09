@@ -111,10 +111,10 @@ challenge/run is a relative path, invoked from the right directory!
 Here is your flag:
 pwn.college{o_IO3yJTNHA_JQA0fOW5VC1S4PV.dlDN1QDL5IjN0czW}
 ```
+
 ## 7) explicitive relative paths, from /
 
-What I learnt in this challenge, the mistakes and the approach towards the right conclusion: 
-
+We just needed to cd to the / directory and then invoke a relative path.
 
 ```bash
 hacker@paths~explicit-relative-paths-from-:~$ .
@@ -162,6 +162,9 @@ pwn.college{UDuBPApIynvpFZJM67N8-0aVOnZ.dBTN1QDL5IjN0czW}
 hacker@paths~explicit-relative-paths-from-:/$ 
 ```
 ## 8) implicit relative path
+
+So we just need to cd into the challenge direcory and to use /run we have to explicitly tell Linux that we want to execute the program in the current directory using .
+
 ```bash
 hacker@paths~implicit-relative-path:~$ cd /challenge
 hacker@paths~implicit-relative-path:/challenge$ ./run
@@ -172,6 +175,18 @@ pwn.college{0VnsSqcQazcF6FGKQvuLAd2I8SC.dFTN1QDL5IjN0czW}
 ```
 
 ## 9) home sweet home 
+
+In this challenge we needed to cd into the home directory and run the /challenge/run command with an argument with certain constraints which are as follows :- 
+
+Your argument must be an absolute path.
+
+The path must be inside your home directory.
+
+Before expansion, your argument must be three characters or less.
+
+Hence I put in the argument as ~/~ which satisfies all three of these conditions.
+
+
 ```bash
 hacker@paths~home-sweet-home:~$ cd ~
 hacker@paths~home-sweet-home:~$ cd /
