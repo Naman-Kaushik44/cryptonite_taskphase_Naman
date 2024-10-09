@@ -2,6 +2,30 @@
 
 ## Matching with *
 
+When it encounters a * character in any argument, the shell will treat it as "wildcard" and try to replace that argument with any files that match the pattern.
+This is well illustrated in an example given on pwn.college.
+``
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ touch file_b
+hacker@dojo:~$ touch file_c
+hacker@dojo:~$ ls
+file_a	file_b	file_c
+hacker@dojo:~$ echo Look: file_*
+Look: file_a file_b file_c
+``
+The * matches any part of the filename except for / or a leading . character. For example:
+``
+hacker@dojo:~$ echo ONE: /ho*/*ck*
+ONE: /home/hacker
+hacker@dojo:~$ echo TWO: /*/hacker
+TWO: /home/hacker
+hacker@dojo:~$ echo THREE: ../*
+THREE: ../hacker
+``
+The challenge just required me to use the glob to pass an argument to cd with just 4 characters or less.
+I was confused at first in how it worked like I assumed that a glob was used for each place we wanted to shorten which obviously makes no sense since the time spent would be the same.
+I later realized that we just need one * and a couple of characters unique to the word we want to glob to instantly shorten it.
+
 ```bash
 This challenge resets your working directory to /home/hacker unless you change 
 directory properly...
