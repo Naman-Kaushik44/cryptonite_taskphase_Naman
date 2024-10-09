@@ -895,6 +895,9 @@ Correct usage! Your flag: pwn.college{cuNrhGFViMQ9YYUJvPbH_2X8Wkc.dZTM4QDL5IjN0c
 ```
 ## 6) Helpful Programs
 
+I tried using the argumemt on different programs until I realized I should try out the /challenge/challenge command that was giving me the flag in this module. 
+Used it and it gave me direct instructions on how to get the flag which I did.
+
 ```bash
 hacker@man~helpful-programs:~$ /flag --help
 ssh-entrypoint: /flag: Permission denied
@@ -921,6 +924,8 @@ hacker@man~helpful-programs:~$
 ```
 
 ## 7) Help for Builtins 
+
+This was similar to the previous challenge but here I was given a direct builtin command help to be used on another command challenge to get the clues for the flag.
 
 ```bash
 
