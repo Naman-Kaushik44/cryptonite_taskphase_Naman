@@ -239,8 +239,9 @@ pwn.college{8HOxbJcT7KAZmuzQO-doJsB3eiT.dVDM5QDL5IjN0czW}
 ```
 ## Duplicating piped data with tee
 
-```
+
 The tee command, named after a "T-splitter" from plumbing pipes, duplicates data flowing through your pipes to any number of files provided on the command line. For example:
+```
 hacker@dojo:~$ echo hi | tee pwn college
 hi
 hacker@dojo:~$ cat pwn
@@ -270,7 +271,28 @@ pwn.college{oNs6OOwCCF8_daCXkhOfkEmQQ2t.dFjM5QDL5IjN0czW}
 ```
 ## Writing to Multiple Programs
 
+Linux follows the philosophy that "everything is a file". This is, the system strives to provide file-like access to most resources, including the input and output of running programs! The shell follows this philosophy, allowing us to, for example, use any utility that takes file arguments on the command line (such as tee) and hook it up to the input or output side of a program!
 
+This is done using what's called Process Substitution. If we write an argument of >(rev), bash will run the rev command (this command reads data from standard input, reverses its order, and writes it to standard output!), but hook up its input to a temporary file that it will create. This isn't a real file, of course, it's what's called a named pipe.
+
+The following are equivalant:
+``
+hacker@dojo:~$ echo hi | rev
+ih
+hacker@dojo:~$ echo hi > >(rev)
+ih
+hacker@dojo:~$
+`` 
+
+More than one way to pipe data! Of course, the second route is way harder to read and also harder to expand. For example:
+``
+hacker@dojo:~$ echo hi | rev | rev
+hi
+hacker@dojo:~$ echo hi > >(rev | rev)
+hi
+hacker@dojo:~$
+``
+Now in this challenge I just redirected the stdout of /challenge/run command through the pipe and tee then duplicated its output into the input of the two commands /challenge/the and /challenge/planet. 
 
 ```bash
 hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) >(/challenge/planet)
@@ -282,6 +304,13 @@ is your flag:
 pwn.college{Ugdw5_SySdwRgoU7BRA1oUqzf75.dBDO0UDL5IjN0czW}
 ```
 ## Split-Piping stderr and stdout
+
+During the redirecting error challenge we were taught that we can redirect multiple file descriptors at the same time.
+This clicked to me after doing a lot of errors, I tried passing through the pipe first and used 2> which of course didn't give me the result since | only pssses stdout.
+
+Again I tried using 2>& 1 which again didn't work because of the restriction on |.
+
+At the end, I decided to not use the pipe and instead used > and 2> to complete the challenge by redirecting the stdout and stderror into their respective target commands as input and got the flag.
 
 ```bash
 hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | 2>(/challeneg/the) >(/challenge/planet)
