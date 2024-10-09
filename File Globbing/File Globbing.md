@@ -47,6 +47,22 @@ pwn.college{0OMa33nfSO9bIqDhNkGLZweKg5J.dFjM4QDL5IjN0czW}
 
 ## Matching with ?
 
+When it encounters a ? character in any argument, the shell will treat it as single-character wildcard. This works like *, but only matches one character. For example:
+
+``
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ touch file_b
+hacker@dojo:~$ touch file_cc
+hacker@dojo:~$ ls
+file_a	file_b	file_cc
+hacker@dojo:~$ echo Look: file_?
+Look: file_a file_b
+hacker@dojo:~$ echo Look: file_??
+Look: file_cc
+``
+
+In this challenge we only needed to change the directory to /challenge by globbing with ? by replacing c and l in the argument.
+
 ```bash
 This challenge resets your working directory to /home/hacker unless you change 
 directory properly...
@@ -57,6 +73,20 @@ pwn.college{MWKVI3gGsoev9GEyeOCJEiUqPOW.dJjM4QDL5IjN0czW}
 ```
 ## Matching with []
 
+The square brackes are, essentially, a limited form of ?, in that instead of matching any character, [] is a wildcard for some subset of potential characters, specified within the brackets. For example, [pwn] will match the character p, w, or n. For example:
+
+```
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ touch file_b
+hacker@dojo:~$ touch file_c
+hacker@dojo:~$ ls
+file_a	file_b	file_c
+hacker@dojo:~$ echo Look: file_[ab]
+Look: file_a file_b
+```
+
+In this challenge I just changed working directory to /change/files and then ran the /challenge/run command with the argument globbed with characters a h s b which will be corresponding to their respective files after the execution of the command.
+
 ```bash
 hacker@globbing~matching-with-:~$ cd /challenge/files
 hacker@globbing~matching-with-:/challenge/files$ /challenge/run file_[ahsb]
@@ -64,6 +94,7 @@ You got it! Here is your flag!
 pwn.college{EBPRt5r7l2MvjSYkI4cRqg11eZk.dNjM4QDL5IjN0czW}
 ```
 ## Matching paths with []
+
 
 ```bash
 hacker@globbing~matching-paths-with-:~$ cd /challenge/files
