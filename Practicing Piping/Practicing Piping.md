@@ -208,3 +208,58 @@ Congratulations, you have duplicated data into the input of two programs! Here
 is your flag:
 pwn.college{Ugdw5_SySdwRgoU7BRA1oUqzf75.dBDO0UDL5IjN0czW}
 ```
+## Split-Piping stderr and stdout
+
+```bash
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | 2>(/challeneg/the) >(/challenge/planet)
+ssh-entrypoint: /challeneg/the: No such file or directory
+ssh-entrypoint: 2/dev/fd/63: No such file or directory
+Are you sure you're properly redirecting /challenge/hack's standard output into 
+'/challenge/planet'?
+You must redirect my standard error into '/challenge/the'!
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | tee 2>(/challeneg/the) >(/challenge/planet)
+ssh-entrypoint: /challeneg/the: No such file or directory
+tee: 2/dev/fd/63: No such file or directory
+This secret data must directly make it to /challenge/planet over my stdout. 
+Don't try to copy-paste it; it changes too fast.
+1521128053136516794
+You must redirect my standard error into '/challenge/the'!
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack 2>&1 | >(/challeneg/the) >(/challenge/planet)
+ssh-entrypoint: /challeneg/the: No such file or directory
+ssh-entrypoint: /dev/fd/63: Permission denied
+Are you sure you're properly redirecting /challenge/hack's standard output into 
+'/challenge/planet'?
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | >(/challenge/planet) 2>& 1 | >(/challenge/the)
+ssh-entrypoint: /dev/fd/63: Permission denied
+Are you sure you're properly redirecting /challenge/hack's standard output into 
+Are you sure you're properly redirecting /challenge/hack's standard error into 
+'/challenge/planet'?
+'/challenge/the'?
+You must redirect my standard error into '/challenge/the'!
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | >(/challenge/planet) 2> >(/challenge/the)
+Are you sure you're properly redirecting /challenge/hack's standard error into 
+'/challenge/the'?
+You must redirect my standard error into '/challenge/the'!
+Are you sure you're properly redirecting /challenge/hack's standard output into 
+'/challenge/planet'?
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | /challenge/planet 2>&1 | /challenge/the
+You must redirect my standard error into '/challenge/the'!
+You are redirecting standard error *of /challenge/planet*! Instead, you must 
+redirect standard error of 'hack'. This must be done *before* any |. The right 
+side of the pipe is a different command, with its own redirection, than the 
+left side!
+Are you sure you're properly redirecting /challenge/hack's standard error into 
+'/challenge/the'?
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | /challenge/planet >(/challenge/the)
+You must redirect my standard error into '/challenge/the'!
+Are you sure you're properly redirecting /challenge/hack's standard error into 
+'/challenge/the'?
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack | /challenge/planet >(/challenge/the)
+You must redirect my standard error into '/challenge/the'!
+Are you sure you're properly redirecting /challenge/hack's standard error into 
+'/challenge/the'?
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack > >(/challenge/planet) 2> >(/challenge/the)
+Congratulations, you have learned a redirection technique that even experts 
+struggle with! Here is your flag:
+pwn.college{MrleifJEzZVCOQ9evIN7erD-5ul.dFDNwYDL5IjN0czW}
+```
