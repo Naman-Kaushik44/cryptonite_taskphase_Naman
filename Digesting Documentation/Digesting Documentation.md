@@ -1,6 +1,10 @@
 # Digesting Documentation
-(All codes are added, will add the learnings and approach soon)
+
 ## 1) Learning from Documentation
+
+```Welcome to the documentation for /challenge/challenge! To properly run this program, you will need to pass it the argument of --giveflag. Good luck!```
+
+The challenge was quite clear in what I had to do and it introduced me to the concept of documentation and how certain commands take in specific arguments to work properly for certain tasks.
 
 ```bash
 hacker@man~learning-from-documentation:~$ /challenge/challenge --giveflag
@@ -11,6 +15,7 @@ hacker@man~learning-from-documentation:~$
 
 ## 2) Learning Complex uses 
 
+In this challenge the argument of the command took another argument which gave us the flag.
 
 ```bash
 hacker@man~learning-complex-usage:~$ /challenge/challenge --printfile /challenge/DESCRIPTION.md
