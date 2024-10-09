@@ -179,3 +179,32 @@ hacker@piping~grepping-errors:~$ /challenge/run 2>& 1 | grep pwn.college
 [PASS] Success! You have satisfied all execution requirements.
 pwn.college{8HOxbJcT7KAZmuzQO-doJsB3eiT.dVDM5QDL5IjN0czW}
 ```
+## Duplicating piped data with tee
+
+```bash
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn | tee pwn_output | /challenge/college
+Processing...
+The input to 'college' does not contain the correct secret code! This code 
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the 
+output of 'pwn' and figure out what the code needs to be.
+hacker@piping~duplicating-piped-data-with-tee:~$ cat pwn_output
+Usage: /challenge/pwn --secret [SECRET_ARG]
+
+SECRET_ARG should be "oNs6OOwC"
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn --secret oNs6OOwC | /challenge/college
+Processing...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{oNs6OOwCCF8_daCXkhOfkEmQQ2t.dFjM5QDL5IjN0czW}
+```
+## Writing to Multiple Programs
+
+```bash
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) >(/challenge/planet)
+This secret data must directly and simultaneously make it to /challenge/the and 
+/challenge/planet. Don't try to copy-paste it; it changes too fast.
+2872031037138545782
+Congratulations, you have duplicated data into the input of two programs! Here 
+is your flag:
+pwn.college{Ugdw5_SySdwRgoU7BRA1oUqzf75.dBDO0UDL5IjN0czW}
+```
