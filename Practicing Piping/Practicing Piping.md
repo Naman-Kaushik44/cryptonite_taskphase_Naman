@@ -24,6 +24,7 @@ pwn.college{cHlQ5oNL24SXd4KcprW8QtJPvaW.dRjN1QDL5IjN0czW}
 ```
 ## Redirecting more Output
 
+
 ``>`` can be used to redirect the output from any command.
 In this challenge we were required to redirect the stdout of /challenge/run to myflag file to get the flag.
 
@@ -51,7 +52,8 @@ hacker@piping~redirecting-more-output:~$ cat myflag
 ```
 ## Appending Output 
 
-
+A common use for output redirection is to save some command results and use them later.
+If we want to append them into the same file then we use ``>>``
 ```bash
 hacker@piping~appending-output:~$ /challenge/run >> /home/hacker/the-flag
 [INFO] WELCOME! This challenge makes the following asks of you:
