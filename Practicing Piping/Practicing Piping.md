@@ -10,9 +10,11 @@ These three channels are used so frequently in Linux, they are known by shorter 
 
 ## Redirecting Output
 
-``>`` is used to redirect the stdout to a files.
+``>`` is used to redirect the stdout to files.
 
 In this challenge we were required to redirect PWN to the filename COLLEGE. 
+
+I just used the echo command which helps us print the argument to the terminal and then redirected it to the COLLEGE file to get the flag.
 
 ```bash
 hacker@piping~redirecting-output:~$ echo PWN > COLLEGE
@@ -21,6 +23,7 @@ flag:
 pwn.college{cHlQ5oNL24SXd4KcprW8QtJPvaW.dRjN1QDL5IjN0czW}
 ```
 ## Redirecting more Output
+
 
 ```bash
 hacker@piping~redirecting-more-output:~$ /challenge/run > myflag
