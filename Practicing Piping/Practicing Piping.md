@@ -208,7 +208,12 @@ hacker@piping~grepping-live-output:~$
 ```
 ## Grepping Errors
 
+The | operator redirects only standard output to another program, and there is no 2| form of the operator! It can only redirect standard output (file descriptor 1).
 
+The shell has a >& operator, which redirects a file descriptor to another file descriptor. This means that we can have a two-step process to grep through errors: first, we redirect standard error to standard output (2>& 1) and then pipe the now-combined stderr and stdout as normal (|)!
+
+Again in this challenge we were supposed to grep theough the errors to get the flag.
+So I simply passed the /challenge/run command whose stderror was redirected to grep command through the | by the use of 2>&1 to get only stderror.
 
 ```bash
 hacker@piping~grepping-errors:~$ /challenge/run 2>& 1 | grep pwn.college
@@ -234,6 +239,19 @@ pwn.college{8HOxbJcT7KAZmuzQO-doJsB3eiT.dVDM5QDL5IjN0czW}
 ```
 ## Duplicating piped data with tee
 
+```
+The tee command, named after a "T-splitter" from plumbing pipes, duplicates data flowing through your pipes to any number of files provided on the command line. For example:
+hacker@dojo:~$ echo hi | tee pwn college
+hi
+hacker@dojo:~$ cat pwn
+hi
+hacker@dojo:~$ cat college
+hi
+hacker@dojo:~$
+```
+In this challenge we were supposed to intercept the output going from /challenge/run with the tee cckand get a secret code to properly run the command and get the flag.
+
+
 ```bash
 hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn | tee pwn_output | /challenge/college
 Processing...
@@ -251,6 +269,8 @@ Great job! Here is your flag:
 pwn.college{oNs6OOwCCF8_daCXkhOfkEmQQ2t.dFjM5QDL5IjN0czW}
 ```
 ## Writing to Multiple Programs
+
+
 
 ```bash
 hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) >(/challenge/planet)
