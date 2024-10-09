@@ -41,6 +41,8 @@ pwn.college{QMVD9gbXUp6jwQLH1sl8NaCauSw.dVjM5QDL5IjN0czW}
 
 ## 3) Reading Manuals
 
+I used the man command to enter the manual page for challenge which held the command that I had to use as well as the special argument it needed to print the flag, used it and got it.
+
 ```bash
 hacker@man~reading-manuals:/challenge$ man challenge
 
@@ -114,6 +116,14 @@ Correct usage! Your flag: pwn.college{ETE-AFZ2f9SXuMATeueR70f3QfN.dVTM4QDL5IjN0c
 ```
 
 ## 5) Searching for Manuals
+
+(This question kinda made me cry)
+
+So we check the man page for man command itself and get the entire list of everything it has to offer.
+
+After going through the page, I found that I can use -k to search for a specific part of a man page which I did to search for all pages with flags in them.
+
+I found the one with the description that allowed me to print the file and then opened the man page for it and got the special argument for /challenge/challenge command to run and give me the flag.
 
 ```bash
 
