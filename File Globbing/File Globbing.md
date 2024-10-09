@@ -120,6 +120,13 @@ pwn.college{syr6LKyiSVdTkE24NNyOAB11K3h.dRjM4QDL5IjN0czW}
 ```
 ## Mixing globs
 
+In this challenge I understood how mixing two globs can make significant improvements in the efficiency of our work.
+At first I was trying to get it to work by just the bracket glob but it wouldn't work, understandly so since without a *, the word wouldn't expand to match what I needed.
+
+Although it worked, I wanted to get this a bit more clear so I tried asking GPT about why the letters I entered in [ ] didn't catch the letters from in between those desired words. Like challenging has g, why didn't it get that? 
+
+The answer was that if we want that to happen, we must glob it in this format : *[...]* so that it gets the characters in the middle to match with the characters of the desired word.
+
 ```bash
 hacker@globbing~mixing-globs:~$ cd /challenge/files
 hacker@globbing~mixing-globs:/challenge/files$ ls
