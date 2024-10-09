@@ -95,6 +95,19 @@ pwn.college{EBPRt5r7l2MvjSYkI4cRqg11eZk.dNjM4QDL5IjN0czW}
 ```
 ## Matching paths with []
 
+Globbing happens on a path basis, so you can expand entire paths with your globbed arguments. For example:
+
+``
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ touch file_b
+hacker@dojo:~$ touch file_c
+hacker@dojo:~$ ls
+file_a	file_b	file_c
+hacker@dojo:~$ echo Look: /home/hacker/file_[ab]
+Look: /home/hacker/file_a /home/hacker/file_b
+``
+
+So I was a little confused at first but after rereading the challenge I got that we had to start from the home directory and then navigate into opening those files with their absolute paths while using globbing to do it all at the same time which I did with the /challenge/run command.
 
 ```bash
 hacker@globbing~matching-paths-with-:~$ cd /challenge/files
