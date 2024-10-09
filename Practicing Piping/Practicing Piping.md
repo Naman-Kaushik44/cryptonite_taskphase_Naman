@@ -24,6 +24,10 @@ pwn.college{cHlQ5oNL24SXd4KcprW8QtJPvaW.dRjN1QDL5IjN0czW}
 ```
 ## Redirecting more Output
 
+``>`` can be used to redirect the output from any command.
+In this challenge we were required to redirect the stdout of /challenge/run to myflag file to get the flag.
+
+/challenge/run still prints to thw terminal even after redirecting it's stdout because of it communicates its instructions and commands over the stderror and only prints the flag over stdout.
 
 ```bash
 hacker@piping~redirecting-more-output:~$ /challenge/run > myflag
