@@ -149,6 +149,12 @@ pwn.college{oVj9YuVk266wrRSBVPNz325fyNC.dVjM4QDL5IjN0czW}
 ```
 ## Exclusionary Globbing
 
+If the first character in the brackets is a ! or (in newer versions of bash) a ^, the glob inverts, and that bracket instance matches characters that aren't listed.
+
+In this challenge we just needed to run all the files with /challenge/run who don't begin with p, w and n.
+
+So we just exclude all files starting with p,w and n by starting the bracket glob with ! and adding a * after the [ ]. 
+
 ```bash
 hacker@globbing~exclusionary-globbing:~$ cd /challenge/files
 hacker@globbing~exclusionary-globbing:/challenge/files$ ls
