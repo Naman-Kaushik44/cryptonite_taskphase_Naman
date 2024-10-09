@@ -54,6 +54,7 @@ hacker@piping~redirecting-more-output:~$ cat myflag
 
 A common use for output redirection is to save some command results and use them later.
 If we want to append them into the same file then we use ``>>``
+In this challenge we were required to append the output of the /challenge/run file into a given directory and if executed properly, the flag which was divided into two parts will be appended into the directory.
 ```bash
 hacker@piping~appending-output:~$ /challenge/run >> /home/hacker/the-flag
 [INFO] WELCOME! This challenge makes the following asks of you:
