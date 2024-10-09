@@ -1,6 +1,18 @@
 # Practicing Piping
 
+This module is about input and output redirection. Simply put, every process in Linux has three initial, standard channels of communication:
+
+Standard Input is the channel through which the process takes input. For example, the shell uses Standard Input to read the commands that we input.
+Standard Output is the channel through which processes output normal data, such as the flag when it is printed to us in previous challenges or the output of utilities such as ls.
+Standard Error is the channel through which processes output error details. For example, if we mistype a command, the shell will output, over standard error, that this command does not exist.
+
+These three channels are used so frequently in Linux, they are known by shorter names: stdin, stdout, stderr.
+
 ## Redirecting Output
+
+``>`` is used to redirect the stdout to a files.
+
+In this challenge we were required to redirect PWN to the filename COLLEGE. 
 
 ```bash
 hacker@piping~redirecting-output:~$ echo PWN > COLLEGE
