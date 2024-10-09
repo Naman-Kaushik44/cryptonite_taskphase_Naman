@@ -27,7 +27,7 @@ pwn.college{cHlQ5oNL24SXd4KcprW8QtJPvaW.dRjN1QDL5IjN0czW}
 ``>`` can be used to redirect the output from any command.
 In this challenge we were required to redirect the stdout of /challenge/run to myflag file to get the flag.
 
-/challenge/run still prints to thw terminal even after redirecting it's stdout because of it communicates its instructions and commands over the stderror and only prints the flag over stdout.
+/challenge/run still prints to the terminal even after redirecting it's stdout because of it communicates its instructions and commands over the stderror and only prints the flag over stdout.
 
 ```bash
 hacker@piping~redirecting-more-output:~$ /challenge/run > myflag
@@ -50,6 +50,7 @@ hacker@piping~redirecting-more-output:~$ cat myflag
 [FLAG] pwn.college{USwoYe-xIDs_N3b_y2HlJ3io378.dVjN1QDL5IjN0czW}
 ```
 ## Appending Output 
+
 
 ```bash
 hacker@piping~appending-output:~$ /challenge/run >> /home/hacker/the-flag
