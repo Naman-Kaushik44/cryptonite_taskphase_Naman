@@ -96,6 +96,20 @@ mode!
 
 ## Redirecting Errors
 
+A File Descriptor (FD) is a number the describes a communication channel in Linux.
+File decriptors we know: 
+
+FD 0: Standard Input
+FD 1: Standard Output
+FD 2: Standard Error
+
+Redirecting errors can easily be done by adding 2 in front of > just like ``2>`` and multiple file descriptors can be redirected at the same time:
+
+``
+hacker@dojo:~$ /challenge/run 2> errors.log
+`` 
+
+In this challenge we were required to redirect the stdout to the myflag file and the stderror to the instructions file which I did and then ran the cat command to read myflag file for the flag.
 
 ```bash
 hacker@piping~redirecting-errors:~$ /challenge/run > myflag 2> instructions
@@ -122,6 +136,11 @@ hacker@piping~redirecting-errors:~$ cat instructions
 
 ## Redirecting Input 
 
+Input can be redirected to commands with ``<``.
+
+In this challenge we were simply supposed to redirect the value COLLEGE to the PWN file and then redirect the PWN file to the command /challenge/run.
+So I just used the echo command to output COLLEGE as the stdout which was redirected to PWN and then it was again redirected to /challenge/run.
+
 ```bash
 hacker@piping~redirecting-input:~$ echo COLLEGE > PWN
 hacker@piping~redirecting-input:~$ /challenge/run < PWN
@@ -132,6 +151,10 @@ Here is your flag:
 pwn.college{0z3D8SvPf8d-ggmzi9eF3HO5lfZ.dBzN1QDL5IjN0czW}
 ```
 ## Grepping stored results
+
+This was a fairly simple practice challenge where we just had to redirect the stdout of /challenge/run to the given file which would result in a 100k lines code.
+Then we can simply use the grep command to get the flag by putting in the argument as pwn.college, the standard starting words for all pwn.college flags.
+
 
 ```bash
 hacker@piping~grepping-stored-results:~$ /challenge/run >  /tmp/data.txt
@@ -157,6 +180,9 @@ pwn.college{kmixtArgzxxaoWqoC3vrbNtu91_.dhTM4QDL5IjN0czW}
 ```
 ## Grepping Live Output
 
+The pipe (|) operator takes the output from the command to the left of the pipe and connects it into the input of the command to the right of the pipe.
+In this challenge I simply connected the /challenge/run command to the grep command with the argument pwn.college to get the flag by passing the output of the former to the latter as input which then scoured through it for the flag.
+
 ```bash
 hacker@piping~grepping-live-output:~$ /challenge/run | grep pwn.college
 [INFO] WELCOME! This challenge makes the following asks of you:
@@ -181,6 +207,8 @@ pwn.college{kIr5m7gJszq0O-l0rBF-TGFD2Oz.dlTM4QDL5IjN0czW}
 hacker@piping~grepping-live-output:~$ 
 ```
 ## Grepping Errors
+
+
 
 ```bash
 hacker@piping~grepping-errors:~$ /challenge/run 2>& 1 | grep pwn.college
