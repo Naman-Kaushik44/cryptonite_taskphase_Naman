@@ -55,3 +55,12 @@ LC_CTYPE=C.UTF-8
 PATH=/run/challenge/bin:/run/workspace/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 _=/run/workspace/bin/env
 ```
+## Storing Command Output
+
+```bash
+hacker@variables~storing-command-output:~$ PWN=$(/challenge/run)
+Congratulations! You have read the flag into the PWN variable. Now print it out 
+and submit it!
+hacker@variables~storing-command-output:~$ echo $PWN
+pwn.college{c0KTmUMsTV-_TwPKJTASjieJLPg.dVzN0UDL5IjN0czW}
+```
