@@ -29,3 +29,13 @@ hacker@processes~killing-processes:~$ /challenge/run
 Great job! Here is your payment:
 pwn.college{Ue776w4hjdkGs5hpROlCX5jwXQM.dJDN4QDL5IjN0czW}
 ```
+## Interrupting Processes
+
+```bash
+hacker@processes~interrupting-processes:~$ /challenge/run
+I could give you the flag... but I won't, until this process exits. Remember, 
+you can force me to exit with Ctrl-C. Try it now!
+^C
+Good job! You have used Ctrl-C to interrupt this process! Here is your flag:
+pwn.college{QESbij3I--O9xTZZ8HJDiZS6TO7.dNDN4QDL5IjN0czW}
+```
