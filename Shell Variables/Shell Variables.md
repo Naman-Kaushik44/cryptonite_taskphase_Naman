@@ -72,3 +72,10 @@ COLLEGE
 You've set the PWN variable properly! As promised, here is the flag:
 pwn.college{4MK-jVE-D-lbPjCl5oHqN71as8M.dhzN1QDL5IjN0czW}
 ```
+## Reading Files
+
+```bash
+hacker@variables~reading-files:~$ read PWN < /challenge/read_me
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{oVciHD-4tDL18FBxlhnIWrl-UOi.dBjM4QDL5IjN0czW}
+```
