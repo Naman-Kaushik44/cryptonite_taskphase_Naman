@@ -163,3 +163,14 @@ hacker@processes~starting-backgrounded-processes:~$ pwn.college{EBmfh3IAMgwPxKc7
 
 [1]+  Done                    /challenge/run
 ```
+## Process Exit Codes
+
+```bash
+hacker@processes~process-exit-codes:~$ /challenge/get-code
+Exiting with an error code!
+hacker@processes~process-exit-codes:~$ echo $?
+187
+hacker@processes~process-exit-codes:~$ /challenge/submit-code 187
+CORRECT! Here is your flag:
+pwn.college{g7m8ddqnbtlkeNDUlojZ-qCcjbH.dljN4UDL5IjN0czW}
+```
