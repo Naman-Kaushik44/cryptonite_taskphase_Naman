@@ -46,3 +46,32 @@ hacker@permissions~changing-file-ownership:~$ cat not-the-flag
 pwn.college{EhC9EIXfTDQ4FgeU_6fNwaNekKH.dFTM2QDL5IjN0czW}
 ```
 ## Groups and Files
+
+```bash
+hacker@permissions~groups-and-files:~$ cat /flag
+pwn.college{oBV-3rUgDpKo9JiMdK2KEn0jU4Z.dFzNyUDL5IjN0czW}
+hacker@permissions~groups-and-files:~$ 
+```
+
+## Fun with Group Names
+
+```bash
+hacker@permissions~fun-with-groups-names:~$ id
+uid=1000(hacker) gid=1000(grp12234) groups=1000(grp12234)
+hacker@permissions~fun-with-groups-names:~$ chgrp grp12234 /flag
+hacker@permissions~fun-with-groups-names:~$ cat /flag
+pwn.college{0ZLNhD6hyMA6VLTEBz0zpkaLN2I.dJzNyUDL5IjN0czW}
+
+```
+
+## Changing Permissions
+
+```bash
+hacker@permissions~changing-permissions:~$ ls -l /flag
+-r-------- 1 root root 58 Oct 19 13:38 /flag
+hacker@permissions~changing-permissions:~$ chmod a+r /flag
+hacker@permissions~changing-permissions:~$ cat /flag
+pwn.college{AynNn9oMO5hwi0ktXosczPDLSef.dNzNyUDL5IjN0czW}
+hacker@permissions~changing-permissions:~$ 
+```
+## Executable Files
