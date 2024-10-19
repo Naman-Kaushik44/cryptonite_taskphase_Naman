@@ -21,3 +21,19 @@ Invoking 'win'....
 Congratulations! You properly set the flag and 'win' has launched!
 pwn.college{ERFL6wYGQfF1kmrs4rtpv0dia9l.dVzNyUDL5IjN0czW}
 ```
+## Adding Commands
+
+hacker@path~adding-commands:~$ touch win
+hacker@path~adding-commands:~$ which cat
+/run/workspace/bin/cat
+hacker@path~adding-commands:~$ echo '#!/bin/bash' > /home/hacker/win
+hacker@path~adding-commands:~$ echo '/bin/cat /flag' >> /home/hacker/win
+hacker@path~adding-commands:~$ chmod +x /home/hacker/win
+hacker@path~adding-commands:~$ export PATH=/home/hacker:$PATH
+hacker@path~adding-commands:~$ /challenge/run
+Invoking 'win'....
+pwn.college{88kcYYDEkwV5-qMM-tKn1bDzoDR.dZzNyUDL5IjN0czW}
+
+## Hijacking Commands
+
+
