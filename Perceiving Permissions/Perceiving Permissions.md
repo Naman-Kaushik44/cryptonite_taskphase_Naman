@@ -75,3 +75,12 @@ pwn.college{AynNn9oMO5hwi0ktXosczPDLSef.dNzNyUDL5IjN0czW}
 hacker@permissions~changing-permissions:~$ 
 ```
 ## Executable Files
+
+```bash
+hacker@permissions~executable-files:~$ ls -l /challenge/run
+-r--r--r-- 1 hacker hacker 32 Jul  4 06:37 /challenge/run
+hacker@permissions~executable-files:~$ chmod a+x /challenge/run
+hacker@permissions~executable-files:~$ /challenge/run
+Successful execution! Here is your flag:
+pwn.college{0n2l3d5u3RtcRrcc84U5A8OS91s.dJTM2QDL5IjN0czW}
+```
