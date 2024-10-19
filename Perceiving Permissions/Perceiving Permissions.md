@@ -309,7 +309,7 @@ pwn.college{AeA56zeKPkd9oKanYa0hbHThxwZ.dBTM2QDL5IjN0czW}
 ## Permission Setting Practice 
 
 ```bash
-acker@permissions~permissions-setting-practice:~$ /challenge/run
+hacker@permissions~permissions-setting-practice:~$ /challenge/run
 Round 0 (of 8)!
 
 Current permissions of "/challenge/pwn": rw-r--r--
@@ -530,4 +530,15 @@ Try 'chmod --help' for more information.
 hacker@permissions~permissions-setting-practice:~$ chmod a=r /flag
 hacker@permissions~permissions-setting-practice:~$ cat /flag
 pwn.college{Mmo28WoOXAWesW4GcqFiJWQ5r2q.dNTM5QDL5IjN0czW}
+```
+## The SUID Bit
+
+```bash
+hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root! 
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{wV-DR2motRhFJJk3kNcUPmEJ2_o.dNTM2QDL5IjN0czW}
+root@permissions~the-suid-bit:~# 
 ```
