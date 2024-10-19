@@ -37,6 +37,7 @@ I made a file again(x.sh) then I redirected the outputs of the echo commands in 
 
 ## Executable Shell Scripts
 
+I created a file called shell.sh and then redirected stdout of echo command to it, then I proceeded to check the permission of my newly created file. I then changed the permission for the user to execute the file and then just invoked the file via it's relative path in the home directory to get the flag.
 ```bash
 hacker@chaining~executable-shell-scripts:~$ touch shell.sh
 hacker@chaining~executable-shell-scripts:~$ echo /challenge/solve > shell.sh
