@@ -2,6 +2,9 @@
 
 ## Changing file ownership
 
+First I viewed the permissions in the cwd and tried changing owners and catting different files until I realized that the ls -l command 
+was already pointing towards the not-the-flag file so I simply changed the owner to hacker and cat the file to get the flag after that.
+
 ```bash
 hacker@permissions~changing-file-ownership:~$ ls -l
 total 32
@@ -47,6 +50,8 @@ pwn.college{EhC9EIXfTDQ4FgeU_6fNwaNekKH.dFTM2QDL5IjN0czW}
 ```
 ## Groups and Files
 
+I invoked chgrp command to change the owner of the flag file to hacker and then catted the file to get the flag.
+
 ```bash
 hacker@permissions~groups-and-files:~$ cat /flag
 pwn.college{oBV-3rUgDpKo9JiMdK2KEn0jU4Z.dFzNyUDL5IjN0czW}
@@ -54,6 +59,8 @@ hacker@permissions~groups-and-files:~$
 ```
 
 ## Fun with Group Names
+
+I found my group through the id command and then chgrp flag file into that group and used cat to get the flag.
 
 ```bash
 hacker@permissions~fun-with-groups-names:~$ id
@@ -66,6 +73,8 @@ pwn.college{0ZLNhD6hyMA6VLTEBz0zpkaLN2I.dJzNyUDL5IjN0czW}
 
 ## Changing Permissions
 
+I checked the file perms for the flag file and could easily see that it was not readable for the other users so I made it readable for all users 
+with the chmod command and then used cat on the /flag to get the flag.
 ```bash
 hacker@permissions~changing-permissions:~$ ls -l /flag
 -r-------- 1 root root 58 Oct 19 13:38 /flag
@@ -76,6 +85,9 @@ hacker@permissions~changing-permissions:~$
 ```
 ## Executable Files
 
+Checking the perms of the /challenge/run command we can see that is was not set to executable so I simply used 
+chmod command to change the perms for all users to execute it and hence get the file by invoking the /challenge/run command.
+
 ```bash
 hacker@permissions~executable-files:~$ ls -l /challenge/run
 -r--r--r-- 1 hacker hacker 32 Jul  4 06:37 /challenge/run
@@ -85,6 +97,9 @@ Successful execution! Here is your flag:
 pwn.college{0n2l3d5u3RtcRrcc84U5A8OS91s.dJTM2QDL5IjN0czW}
 ```
 ## Permission Tweaking Practice 
+
+A challenge that required a lot of patience and mastery over changing permissions through chmod, took me a while to get all 8 rounds
+right in a row but overall it was fun, good practice for the chmod command uses.
 
 ```bash
 hacker@permissions~permission-tweaking-practice:~$ /challenge/run
@@ -308,6 +323,8 @@ pwn.college{AeA56zeKPkd9oKanYa0hbHThxwZ.dBTM2QDL5IjN0czW}
 ```
 ## Permission Setting Practice 
 
+This challenge is very similar to the previous one, just that it made things easier by letting us directly set the perms of the hacker, group
+and all other users with straight = and overwrite any previous permissions. Again good practice and test of patience.
 ```bash
 hacker@permissions~permissions-setting-practice:~$ /challenge/run
 Round 0 (of 8)!
@@ -532,6 +549,9 @@ hacker@permissions~permissions-setting-practice:~$ cat /flag
 pwn.college{Mmo28WoOXAWesW4GcqFiJWQ5r2q.dNTM5QDL5IjN0czW}
 ```
 ## The SUID Bit
+
+We add SUID to the program /challenge/getroot to elevate users to the administrator status for the execution of this particular program.
+After running the program, it gives us root so we can easily cat out the file from in there.
 
 ```bash
 hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
