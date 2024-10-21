@@ -2,13 +2,14 @@
 
 ## Printing Variables
 
+The challenge required me to print the FLAG variable, which I did by prepending it with $ and then using the echo command on the whole thing, this gave me the flag for this challenge.
 ```bash
 Connected!
 hacker@variables~printing-variables:~$ echo $FLAG
 pwn.college{A8V-xaxfiGWub0PCJqn1IzWAqT6.ddTN1QDL5IjN0czW}
 ```
 ## Setting Variables
-
+This challenge required me to set the value of the variable PWN to COLLEGE using =, no spaces while also taking care that variables are case sensitive, this gave me the flag.
 ```bash
 hacker@variables~setting-variables:~$ PWN=COLLEGE
 You've set the PWN variable properly! As promised, here is the flag:
@@ -16,12 +17,16 @@ pwn.college{AH3mK2gN55Hbf6qk4rMGmlQBtAD.dlTN1QDL5IjN0czW}
 ```
 ## Multi Word Variables
 
+We quote the multi word values to assign it into a variable or the shell doesn't recognize them, that is what was required to be done in this challenge to get the flag.
+
 ```bash
 hacker@variables~multi-word-variables:~$ PWN="COLLEGE YEAH"
 You've set the PWN variable properly! As promised, here is the flag:
 pwn.college{IUJgooAEu1RopQz_Cn7ACYgZFlp.dBjN1QDL5IjN0czW}
 ```
 ## Exporting Examples 
+
+In this challenge I was supposed to  invoke /challenge/run with the PWN variable exported and set to the value COLLEGE, and the COLLEGE variable set to the value PWN but not exported, this is what I did and ran the /challenge/run command to get the flag.
 
 ```bash
 hacker@variables~exporting-variables:~$ export PWN=COLLEGE
@@ -37,6 +42,7 @@ job! Here is your flag:
 pwn.college{4L0oe3UDblh6r8ICdFgfUi_2Z4M.dJjN1QDL5IjN0czW}
 ```
 ## Printing Exported Variables
+Running the env command is another method to print out exported variables, this printed out all the exported variables in my shell from which I could easily spot out the flag.
 
 ```bash
 SHELL=/run/dojo/bin/bash
