@@ -63,6 +63,7 @@ _=/run/workspace/bin/env
 ```
 ## Storing Command Output
 
+Command outputs can be easily stored in a variable with the format Variable=$(command) which can then be read with the echo command on the initialized variable. This is what was required to be done in this challenge, run the /challenge/run command and then store it's output in the PWN variable and then read the PWN variable to get the output as the flag.
 ```bash
 hacker@variables~storing-command-output:~$ PWN=$(/challenge/run)
 Congratulations! You have read the flag into the PWN variable. Now print it out 
@@ -72,6 +73,8 @@ pwn.college{c0KTmUMsTV-_TwPKJTASjieJLPg.dVzN0UDL5IjN0czW}
 ```
 ## Reading Input
 
+Data can be input by other users into the variable by the read command, this challenge was about getting to set COLLEGE as the input to the read command's execution which stores the value of COLLEGE into the variable PWN that was specified into the argument of the read command.
+
 ```bash
 hacker@variables~reading-input:~$ read PWN
 COLLEGE
@@ -80,6 +83,7 @@ pwn.college{4MK-jVE-D-lbPjCl5oHqN71as8M.dhzN1QDL5IjN0czW}
 ```
 ## Reading Files
 
+We read the /challenge/read_me into the PWN variable in this challenge to avoid the redundant use of cat command that increases one step in the process, this allows us to directly read the file through the shell.
 ```bash
 hacker@variables~reading-files:~$ read PWN < /challenge/read_me
 You've set the PWN variable properly! As promised, here is the flag:
