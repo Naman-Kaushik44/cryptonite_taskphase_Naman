@@ -2,6 +2,8 @@
 
 ## Listing Processes
 
+I used ps-aux to show all running processes and found the challenge file, it was easy to invoke it from there with it's absolute path.
+
 ```bash
 hacker@processes~listing-processes:~$ ps -aux
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
@@ -17,6 +19,9 @@ pwn.college{4Q_NlnuaQf3XFmbpBGJGqTquxCc.dhzM4QDL5IjN0czW}
 ```
 # Killing Processes
 
+I used the ps -ef and grep dont from the running processing and /challenge/dont_run process id is 73 so I killed it and 
+and ensured that command is not working again. Hence, I used the /challenge/run command to get the flag.
+
 ```bash
 Connected!                                                                        
 hacker@processes~killing-processes:~$ ps -ef | grep dont
@@ -31,6 +36,8 @@ pwn.college{Ue776w4hjdkGs5hpROlCX5jwXQM.dJDN4QDL5IjN0czW}
 ```
 ## Interrupting Processes
 
+The challenge required me to interrupt the /challenge/run to get the flag so I used ctrl+c to get the flag.
+
 ```bash
 hacker@processes~interrupting-processes:~$ /challenge/run
 I could give you the flag... but I won't, until this process exits. Remember, 
@@ -40,6 +47,9 @@ Good job! You have used Ctrl-C to interrupt this process! Here is your flag:
 pwn.college{QESbij3I--O9xTZZ8HJDiZS6TO7.dNDN4QDL5IjN0czW}
 ```
 ## Suspending Processes
+
+The challenge required me to get another copy of the /challenge/run command running in the terminal, hence I suspended the process /challenge/run
+and then ran the /challenege/run command again to get the flag.
 
 ```bash
 hacker@processes~suspending-processes:~$ /challenge/run
@@ -71,6 +81,8 @@ pwn.college{QKA9bPrsRKf4sHRUhj8sFMl_j6h.dVDN4QDL5IjN0czW}
 ```
 ## Resuming Processes 
 
+This challenge required me to execute the /challenge/run command, then suspend it and had to resume it with the fg command to get the flag.
+
 ```bash
 hacker@processes~resuming-processes:~$ /challenge/run
 Let's practice resuming processes! Suspend me with Ctrl-Z, then resume me with 
@@ -83,6 +95,8 @@ I'm back! Here's your flag:
 pwn.college{sO5-5yW_ljSWZyJWz1EZ-n6auiG.dZDN4QDL5IjN0czW}
 ```
 ## Backgrounding Process
+
+In this /challenge/run was supposed to be first suspended and then resumed in the background and then a new version of /challenge/run was supposed to be launched to get the flag.
 
 ```bash
 hacker@processes~backgrounding-processes:~$ /challenge/run
@@ -124,6 +138,9 @@ pwn.college{sw7LwaFy7eYQ6_nGPOFx_x-fgFo.ddDN4QDL5IjN0czW}
 ```
 # Foregrounding Process
 
+In this challenge, I invoked the /challenge/run command and then suspended it with ctrl + z and then used the bg command to resume it in the background.
+Now I used the fg command to run it in the foreground with re-suspending it to get the flag.
+
 ```bash
 hacker@processes~foregrounding-processes:~$ /challenge/run
 To pass this level, you need to suspend me, resume the suspended process in the 
@@ -149,6 +166,8 @@ pwn.college{oHFLoIqZuuEomAKm0S2ylQJvse1.dhDN4QDL5IjN0czW}
 ```
 # Starting Background Processes
 
+This challenge just required me to append & to the command /challenge/run to start it in the background.
+
 ```bash
 hacker@processes~starting-backgrounded-processes:~$ /challenge/run &
 [1] 85
@@ -164,6 +183,9 @@ hacker@processes~starting-backgrounded-processes:~$ pwn.college{EBmfh3IAMgwPxKc7
 [1]+  Done                    /challenge/run
 ```
 ## Process Exit Codes
+
+$? allows us to read a special variable ? with the echo command, it stores the exit code of a recently terminated command. We just had to get that 
+exit code in this challenge and run it as an argument to the given command to get the flag.
 
 ```bash
 hacker@processes~process-exit-codes:~$ /challenge/get-code
